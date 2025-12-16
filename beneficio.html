@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Beneficios Avios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* ========= RESET ========= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      background: #f2f2f2;
+      color: #222;
+      line-height: 1.4;
+    }
+
+    /* ========= HEADER ========= */
+    header {
+      background: #b11226;
+      padding: 14px 16px;
+      text-align: center;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* ========= CONTAINER ========= */
+    main {
+      padding: 20px 16px 40px;
+      max-width: 480px; /* foco mobile */
+      margin: 0 auto;
+    }
+
+    /* ========= HERO ========= */
+    .hero h1 {
+      font-size: 1.6rem;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 22px;
+    }
+
+    /* ========= CARD ========= */
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .card ul {
+      list-style: none;
+    }
+
+    .card ul li {
+      font-size: 0.95rem;
+      padding: 6px 0;
+    }
+
+    /* ========= BENEFITS ========= */
+    .benefits {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .benefit {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    .benefit span {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .benefit strong {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    /* ========= BUTTONS ========= */
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: #e6e6e6;
+      color: #000;
+    }
+
+    .btn-primary {
+      background: #f5c400;
+      color: #000;
+    }
+
+    /* ========= FOOTER ========= */
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #666;
+      padding: 24px 16px;
+    }
+
+    footer a {
+      color: #666;
+      text-decoration: underline;
+    }
+
+    /* ========= DESKTOP ========= */
+    @media (min-width: 768px) {
+      main {
+        max-width: 900px;
+        padding: 40px 24px 60px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .benefits {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  Programa de Beneficios
+</header>
+
+<main>
+
+  <section class="hero">
+    <h1>Beneficios exclusivos para clientes con más de 100.000 Avios</h1>
+    <p>
+      Comprueba si cumples los requisitos y accede a ventajas premium
+      disponibles para miembros seleccionados.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Condiciones de acceso</h2>
+    <ul>
+      <li>✔ Más de <strong>100.000 Avios</strong> acumulados</li>
+      <li>✔ Cuenta activa</li>
+      <li>✔ Beneficios sujetos a disponibilidad</li>
+    </ul>
+  </section>
+
+  <section class="benefits">
+    <div class="benefit">
+      <span>✈️</span>
+      <strong>Upgrade gratuito a Clase Business</strong>
+    </div>
+    <div class="benefit">
+      <span>💳</span>
+      <strong>Doble acumulación de Avios</strong>
+    </div>
+    <div class="benefit">
+      <span>👑</span>
+      <strong>Acceso a salas VIP y prioridad</strong>
+    </div>
+  </section>
+
+  <section class="actions">
+    <button class="btn btn-secondary"
+      onclick="alert('Para acceder a estos beneficios es necesario disponer de más de 100.000 Avios en una cuenta activa.')">
+      Ver condiciones
+    </button>
+
+    <a class="btn btn-primary" href="https://www.iberia.com/es/">
+      Acceder al sitio oficial
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  Información promocional.  
+  <a href="https://www.iberia.com/es/" target="_blank">Sitio oficial</a>
+</footer>
+
+</body>
+</html>
